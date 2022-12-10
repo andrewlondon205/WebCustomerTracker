@@ -1,15 +1,16 @@
 package it.springmvc.dev.webtracker.entity;
 
+import lombok.*;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @ToString
+@Builder
 @Table(name = "customer")
 public class Customer {
 
