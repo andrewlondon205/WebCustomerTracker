@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>List Customers</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 <div id="wrapper">
@@ -14,12 +15,12 @@
 <div id="container">
   <div id="content">
     <!-- add our html table here -->
-    <table border="1">
+    <table>
 
       <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Email Address</th>
+        <th>Email</th>
       </tr>
 
       <tr th:each="tempCustomer: ${customers}">
