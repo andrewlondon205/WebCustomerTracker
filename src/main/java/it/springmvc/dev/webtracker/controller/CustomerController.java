@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,12 +22,10 @@ public class CustomerController {
 
     @GetMapping("/list")
     public String listCustomers(Model model) {
-
         //get customer from the dao
         List<Customer> customers = customerService.getCustomers();
         // add the customers to the model
         model.addAttribute("customers",customers);
-
         return "list-customers";
     }
 
@@ -36,4 +36,10 @@ public class CustomerController {
         return "customer-form";
     }
 
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+        //save the customer using our service
+        customerService.saveCustomer(theCustomer);
+        return "redirect:/customer/list";
+    }
 }
