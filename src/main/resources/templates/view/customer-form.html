@@ -16,9 +16,12 @@
 
     <div id ="container">
         <h3>Save Customer</h3>
-        <form th:action="@{/customer/saveCustomer}" method="post" th:object="${customer}">
+        <form action="#" th:action="@{/customer/saveCustomer}" method="POST" th:object="${customer}">
             <table>
                 <tbody>
+                    <tr>
+                        <input type="hidden" th:field="*{id}"/>
+                    </tr>
                     <tr>
                         <td><label for="firstName">First Name:</label></td>
                         <td> <input id="firstName" type="text" th:field="*{firstName}"> </td>
@@ -45,7 +48,7 @@
         <div style="clear; both;"></div>
 
         <p>
-            <a href="/customer/list">Back to List</a>
+            <a th:href="@{/customer/list}">Back to List</a>
         </p>
 
     </div>

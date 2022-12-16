@@ -27,15 +27,17 @@
         <th>Action</th>
       </tr>
 
-      <tr th:each="tempCustomer: ${customers}">
+        <tr th:each="tempCustomer: ${customers}">
+          <td th:text="${tempCustomer.firstName}">First Name</td>
+          <td th:text="${tempCustomer.lastName}">Last Name</td>
+          <td th:text="${tempCustomer.email}"> Email </td>
+          <td>
+            <a th:href="@{/customer/showFormForUpdate/(customerId=${tempCustomer.id})}">Update</a>
+            |
+            <a th:href="@{/customer/delete/(customerId=${tempCustomer.id})}" onclick="if (!(confirm('Are you sure you want to proceed?'))) return false">Delete</a>
+          <td>
 
-        <td th:text="${tempCustomer.firstName}">First Name</td>
-        <td th:text="${tempCustomer.lastName}">Last Name</td>
-        <td th:text="${tempCustomer.email}"> Email </td>
-        <td>
-          <a href="@{customer/showFormForUpdate/tempCustomer.id}">Update</a>
-        </td>
-      </tr>
+        </tr>
     </table>
   </div>
 </div>
